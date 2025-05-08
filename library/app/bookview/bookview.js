@@ -48,11 +48,11 @@ function sacuvajKnjige() {
 function prikaziTabelu() {
     tbody.innerHTML = '';
     
-    knjige.forEach((knjiga) => {
+    knjige.forEach((knjiga, index) => {
     const row = document.createElement("tr");
 
     row.innerHTML = `
-      <td>${knjiga.id}</td>
+      <td>${index + 1}</td>
       <td>${knjiga.naziv}</td>
       <td><button class="izbrisi" data-id="${knjiga.id}">Obriši</button></td>
     `;
