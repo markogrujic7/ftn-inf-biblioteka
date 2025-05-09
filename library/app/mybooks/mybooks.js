@@ -13,7 +13,7 @@ class Knjiga {
 
 function ucitajKnjige(){
     if (localStorage.getItem('knjige')) {
-    if (JSON.parse(localStorage.getItem('knjige')).length > 0 && localStorage.getItem('knjige')){
+    if (JSON.parse(localStorage.getItem('knjige')).length > 0){
         const sacuvaneKnjige = localStorage.getItem('knjige');
         const parsedSaved = JSON.parse(sacuvaneKnjige)
         sveKnjige = parsedSaved
@@ -40,7 +40,10 @@ function pronadjiSlobodne() {
     for (const knjiga of sveKnjige) {
         let isIt = true
         if (iznajmljeneKnjige.length < 1 || !iznajmljeneKnjige){
-            slobodneKnjige = sveKnjige
+            slobodneKnjige = []
+            for (const x of sveKnjige) {
+                slobodneKnjige.push(x)
+            }
             localStorage.setItem('slobodneKnjige', JSON.stringify(sveKnjige))
             return
         }
@@ -89,6 +92,7 @@ function vratiKnjigu(id){
     iznajmljeneKnjige = iznajmljeneKnjige.filter(knjiga => knjiga.id !== id);
     sacuvajIznajmljeneKnjige();
     prikaziIznajmljeneKnjige();
+    pronadjiSlobodne()
     prikaziSlobodneKnjige()
 }
 
@@ -119,14 +123,8 @@ function prikaziSlobodneKnjige() {
 }
 
 function iznajmiKnjigu(knjiga) {
-    let iznajmljena = null
-    for (const element of slobodneKnjige) {
-        if (element.id == knjiga.id){
-            iznajmljena = element
-        }
-    }
-    slobodneKnjige.splice(slobodneKnjige.indexOf(iznajmljena), 1)
-    iznajmljeneKnjige.push(iznajmljena)
+    slobodneKnjige.splice(slobodneKnjige.indexOf(knjiga), 1)
+    iznajmljeneKnjige.push(knjiga)
     localStorage.setItem('slobodneKnjige', JSON.stringify(slobodneKnjige))
     localStorage.setItem('iznajmljeneKnjige', JSON.stringify(iznajmljeneKnjige))
     prikaziSlobodneKnjige()
