@@ -1,14 +1,14 @@
-#tabela {
+.tabela {
   margin: 20px;
   display: inline-block;
   border-collapse: collapse;
   vertical-align: top;
 }
-#tabela th, #tabela td {
+.tabela th, .tabela td {
   border: 1px solid black;
   padding: 15px;
 }
-#tabela th {
+.tabela th {
   background-color: #007bff;
   color: white;
 }

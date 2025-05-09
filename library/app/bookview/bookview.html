@@ -15,8 +15,8 @@
                 <li><a href="bookview.html">Pregled knjiga</a></li>
             </ul>
         </nav>
-
-        <table id="tabela">
+        <div class="container">
+            <table id="tabela">
             <thead>
                 <tr>
                     <th>Br</th>
@@ -27,9 +27,28 @@
             <tbody id="tabela-body">
 
             </tbody>
-        </table>
-
-
+            </table>
+            
+            <form id="forma">
+                <label for="naziv">Naziv:</label>
+                <input type="text" name="naziv" id="naziv">
+                <br>
+                <label for="godina">Godina stampanja:</label>
+                <input type="text" name="godina" id="godina">
+                <br>
+                <label for="slikaURL">Putanja do slike:</label>
+                <input type="text" name="slikaURL" id="slikaURL">
+                <br>
+                <label for="opis">Opis:</label>
+                <input type="text" name="opis" id="opis">
+                <br>
+                <label for="popularnost">Popularnost 1-5:</label>
+                <input type="number" name="popularnost" id="popularnost">
+                <br>
+                <input type="button" id="submitBtn" value="Dodaj">
+            </form>
+        </div>
+    
         <script src="bookview.js"></script>
     </body>
 </html>

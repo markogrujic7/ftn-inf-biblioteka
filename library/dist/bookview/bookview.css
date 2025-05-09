@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  align-items: baseline;
+}
+
 #tabela {
   margin: 20px;
   display: inline-block;
@@ -11,6 +16,40 @@
 #tabela th {
   background-color: #007bff;
   color: white;
+}
+
+#forma {
+  display: flex;
+  flex-direction: column;
+  width: 12vw;
+  padding: 3vh;
+  margin-left: 3vw;
+  border: 2px solid rgb(33, 80, 209);
+  border-radius: 10px;
+  background-color: #e5ecf3;
+}
+#forma input {
+  height: 2vh;
+  border-radius: 3px;
+  border: 1px solid;
+}
+#forma label {
+  margin-bottom: 1vh;
+  font-weight: bold;
+}
+#forma #submitBtn {
+  align-self: center;
+  margin-top: 1vh;
+  height: 3vh;
+  width: 10vw;
+  background-color: #007bff;
+  border-radius: 5px;
+  border: transparent solid;
+  color: white;
+  transition: 0.8s;
+}
+#forma #submitBtn:hover {
+  background-color: #3997fc;
 }
 
 /*# sourceMappingURL=bookview.css.map */
